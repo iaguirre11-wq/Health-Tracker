@@ -56,5 +56,5 @@ CREATE TABLE IF NOT EXISTS body_stats (
     log_id            INTEGER PRIMARY KEY,
     weight_lbs        REAL    NOT NULL CHECK (weight_lbs > 0),
     body_fat_percent  REAL    NOT NULL CHECK (body_fat_percent > 0 AND body_fat_percent < 100),
-    log_date          TEXT    NOT NULL CHECK (log_date IS date(log_date))
+    log_date          TEXT    NOT NULL UNIQUE CHECK (log_date IS date(log_date))
 ) STRICT;
